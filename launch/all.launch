@@ -1,0 +1,17 @@
+<launch>
+  <!-- The storer has to be called on the machine that has all the saved files!/-->
+    <include file="$(find dualcamerasaver)/launch/defs.machine"/>
+    <include file="$(find dualcamerasaver)/launch/dualstart.launch"/>
+    <include file="$(find dualcamerasaver)/launch/remotecamera.launch"/>
+    <node name="imagestorer" machine="gigabyte" pkg="dualcamerasaver" type="imagestorer" >
+
+      <param name="save_dir"    value="/tmp"/>
+      <param name="num_images"  value="6"/>
+      <param name="save_dir"    value="/tmp/store"/>
+      <param name="loop_rate"   value="1"/>
+      <!--param name="sec_per_frame" value="0.5"/
+      SO, because of the way I am saving stuff, I can't really save more than 1
+      set of images per second, so maximum value of the parameter loop_rate is 1.
+      -->
+    </node>
+</launch>
