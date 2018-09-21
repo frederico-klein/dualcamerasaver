@@ -1,0 +1,32 @@
+<launch>
+  <arg name="serial_no_camera3"    default="819312071592"/>
+  <machine name="gigabyte" address="gigabyte" env-loader="~/myenv.sh" user="frederico"/>
+   <!-- Note: this is for the moment not synchronized. the real solution is
+   something probably using this: http://docs.ros.org/api/image_transport/html/classimage__transport_1_1SubscriberFilter.html
+   see example here: https://answers.ros.org/question/9705/synchronizer-and-image_transportsubscriber/ -->
+
+  <group ns="camera3">
+    <include file="$(find dualcamerasaver)/launch/nodelet.launch.xml" >
+      <arg name="serial_no"           value="$(arg serial_no_camera3)"/>
+      <arg name="align_depth"         value="true"/>
+      <arg name="enable_color"        value="true"/>
+      <arg name="enable_infra1"       value="false"/>
+      <arg name="enable_infra2"       value="false"/>
+      <arg name="enable_pointcloud"   value="false"/>
+      <arg name="enable_fisheye"      value="false"/>
+      <arg name="enable_imu"          value="false"/>
+      <arg name="fisheye_fps"         value="6"/>
+      <arg name="depth_fps"           value="6"/>
+      <arg name="infra1_fps"          value="6"/>
+      <arg name="infra2_fps"          value="6"/>
+      <arg name="color_fps"           value="6"/>
+      <arg name="gyro_fps"            value="100"/>
+      <arg name="accel_fps"           value="100"/>
+      <arg name="depth_width"         value="640"/>
+      <arg name="depth_height"        value="480"/>
+      <arg name="color_width"         value="640"/>
+      <arg name="color_height"        value="480"/>
+      <arg name="machine"             value="gigabyte"/>
+    </include>
+  </group>
+</launch>
