@@ -92,6 +92,7 @@ int main(int argc, char **argv)
     }
     else
     {
+      ROS_DEBUG("Got only %i images!",imagecounter);
       ROS_WARN_THROTTLE(10, "I can't seem to get enough images. Either limit %i images is incorrect for all publishing nodes, or some nodes are not publishing.",num_images);
     }
     ros::spinOnce();

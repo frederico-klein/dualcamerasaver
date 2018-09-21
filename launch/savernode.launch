@@ -1,9 +1,8 @@
 <launch>
+  <include file="$(find dualcamerasaver)/launch/defs.machine"/>
+
   <!-- The storer has to be called on the machine that has all the saved files!/-->
-    <include file="$(find dualcamerasaver)/launch/defs.machine"/>
-    <include file="$(find dualcamerasaver)/launch/dualstart.launch"/>
-    <include file="$(find dualcamerasaver)/launch/remotecamerastart.launch"/>
-    <node name="imagestorer" machine="gigabyte" pkg="dualcamerasaver" type="imagestorer" >
+    <node name="imagestorer" machine="gigabyte" pkg="dualcamerasaver" type="imagestorer" output="screen">
 
       <param name="save_dir"    value="/tmp"/>
       <param name="num_images"  value="6"/>
