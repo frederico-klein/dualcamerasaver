@@ -30,6 +30,21 @@
       <arg name="color_height"        value="480"/>
       <arg name="machine"             value="satellite"/>
     </include>
+    <include file="$(find dualcamerasaver)/launch/saverserv.launch">
+      <arg name="machine"             value="satellite"/>
+      <arg name="camera_num"          value="1"/>
+      <arg name="savetopic"           value="/color/image_raw"/>
+      <arg name="nameprefix"          value="color"/>
+      <arg name="encoding"            value="bgr8"/>
+    </include>
+    <include file="$(find dualcamerasaver)/launch/saverserv.launch">
+      <arg name="machine"             value="satellite"/>
+      <arg name="camera_num"          value="1"/>
+      <arg name="savetopic"           value="/aligned_depth_to_color/image_raw"/>
+      <arg name="nameprefix"          value="depth"/>
+      <arg name="encoding"            value="16UC1"/>
+    </include>
+
   </group>
 
   <group ns="camera2">
@@ -54,6 +69,20 @@
       <arg name="color_width"         value="640"/>
       <arg name="color_height"        value="480"/>
       <arg name="machine"             value="satellite"/>
+    </include>
+    <include file="$(find dualcamerasaver)/launch/saverserv.launch">
+      <arg name="machine"             value="satellite"/>
+      <arg name="camera_num"          value="2"/>
+      <arg name="savetopic"           value="/color/image_raw"/>
+      <arg name="nameprefix"          value="color"/>
+      <arg name="encoding"            value="bgr8"/>
+    </include>
+    <include file="$(find dualcamerasaver)/launch/saverserv.launch">
+      <arg name="machine"             value="satellite"/>
+      <arg name="camera_num"          value="2"/>
+      <arg name="savetopic"           value="/aligned_depth_to_color/image_raw"/>
+      <arg name="nameprefix"          value="depth"/>
+      <arg name="encoding"            value="16UC1"/>
     </include>
   </group>
 </launch>
