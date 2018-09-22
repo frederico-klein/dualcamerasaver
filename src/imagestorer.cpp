@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     imagecounter = 0;
     for (auto i = directory_iterator(p); i != directory_iterator(); i++)
     {
-      ROS_DEBUG("Iterating through item %s",i->path().string());
+      ROS_DEBUG("Iterating through item %s",i->path().string().c_str());
         if (!is_directory(i->path())&& !(i->path().extension().string().compare(".png"))) //we eliminate directories
         {
             //cout << i->path().filename().string() << " " <<  i->path().extension().string() << endl;
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
 
     if (imagecounter>=num_images)
     {
-      ROS_DEBUG("Moving images from %s to %s", save_dir.c_str(),store_dir.c_str() );
+      ROS_INFO("Moving images from %s to %s", save_dir.c_str(),store_dir.c_str() );
       try
       {
         //magic happens
@@ -78,8 +78,10 @@ int main(int argc, char **argv)
                 //mytime = ros::Time::now();
 
                 std::string newname = i->path().filename().stem().string() + currtimestr + i->path().filename().extension().string();
-                path newpathforthispng = storedir / newname;
 
+                path newpathforthispng = storedir / newname;
+                ROS_DEBUG("old path name is: %s",i->path().string().c_str());
+                ROS_DEBUG("new path name is: %s",newpathforthispng.string().c_str());
                 rename(i->path(),newpathforthispng);
             }
             else
