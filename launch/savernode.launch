@@ -6,7 +6,7 @@
 
       <param name="save_dir"    value="/tmp"/>
       <param name="num_images"  value="6"/>
-      <param name="save_dir"    value="/tmp/store"/>
+      <param name="store_dir"    value="/tmp/store"/>
       <param name="loop_rate"   value="1"/>
       <!--param name="sec_per_frame" value="0.5"/
       SO, because of the way I am saving stuff, I can't really save more than 1
