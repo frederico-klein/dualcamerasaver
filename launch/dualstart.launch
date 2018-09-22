@@ -1,6 +1,7 @@
 <launch>
   <arg name="serial_no_camera1"    default="816312062029"/>
   <arg name="serial_no_camera2"    default="751412060766"/>
+  <arg name="pc_to_save"           default="satellite"/>
   <include file="$(find dualcamerasaver)/launch/defs.machine"/>
 
    <!-- Note: this is for the moment not synchronized. the real solution is
@@ -31,14 +32,14 @@
       <arg name="machine"             value="satellite"/>
     </include>
     <include file="$(find dualcamerasaver)/launch/saverserv.launch">
-      <arg name="machine"             value="satellite"/>
+      <arg name="machine"             value="$(arg pc_to_save)"/>
       <arg name="camera_num"          value="1"/>
       <arg name="savetopic"           value="/color/image_raw"/>
       <arg name="nameprefix"          value="color"/>
       <arg name="encoding"            value="bgr8"/>
     </include>
     <include file="$(find dualcamerasaver)/launch/saverserv.launch">
-      <arg name="machine"             value="satellite"/>
+      <arg name="machine"             value="$(arg pc_to_save)"/>
       <arg name="camera_num"          value="1"/>
       <arg name="savetopic"           value="/aligned_depth_to_color/image_raw"/>
       <arg name="nameprefix"          value="depth"/>
@@ -71,14 +72,14 @@
       <arg name="machine"             value="satellite"/>
     </include>
     <include file="$(find dualcamerasaver)/launch/saverserv.launch">
-      <arg name="machine"             value="satellite"/>
+      <arg name="machine"             value="$(arg pc_to_save)"/>
       <arg name="camera_num"          value="2"/>
       <arg name="savetopic"           value="/color/image_raw"/>
       <arg name="nameprefix"          value="color"/>
       <arg name="encoding"            value="bgr8"/>
     </include>
     <include file="$(find dualcamerasaver)/launch/saverserv.launch">
-      <arg name="machine"             value="satellite"/>
+      <arg name="machine"             value="$(arg pc_to_save)"/>
       <arg name="camera_num"          value="2"/>
       <arg name="savetopic"           value="/aligned_depth_to_color/image_raw"/>
       <arg name="nameprefix"          value="depth"/>

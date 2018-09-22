@@ -1,5 +1,6 @@
 <launch>
   <arg name="serial_no_camera3"    default="819312071592"/>
+  <arg name="pc_to_save"           default="satellite"/>
   <include file="$(find dualcamerasaver)/launch/defs.machine"/>
 
    <!-- Note: this is for the moment not synchronized. the real solution is
@@ -30,14 +31,14 @@
       <arg name="machine"             value="gigabyte"/>
     </include>
     <include file="$(find dualcamerasaver)/launch/saverserv.launch">
-      <arg name="machine"             value="satellite"/>
+      <arg name="machine"             value="$(arg pc_to_save)"/>
       <arg name="camera_num"          value="3"/>
       <arg name="savetopic"           value="/color/image_raw"/>
       <arg name="nameprefix"          value="color"/>
       <arg name="encoding"            value="bgr8"/>
     </include>
     <include file="$(find dualcamerasaver)/launch/saverserv.launch">
-      <arg name="machine"             value="satellite"/>
+      <arg name="machine"             value="$(arg pc_to_save)"/>
       <arg name="camera_num"          value="3"/>
       <arg name="savetopic"           value="/aligned_depth_to_color/image_raw"/>
       <arg name="nameprefix"          value="depth"/>
