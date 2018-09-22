@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     imagecounter = 0;
     for (auto i = directory_iterator(p); i != directory_iterator(); i++)
     {
-      ROS_DEBUG("Iterating through item %s",->path().string())
+      ROS_DEBUG("Iterating through item %s",->path().string());
         if (!is_directory(i->path())&& !(i->path().extension().string().compare(".png"))) //we eliminate directories
         {
             //cout << i->path().filename().string() << " " <<  i->path().extension().string() << endl;
