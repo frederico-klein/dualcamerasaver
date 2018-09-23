@@ -1,0 +1,4 @@
+<launch>
+  <machine name="satellite" address="satellite" env-loader="$(find dualcamerasaver)/satellite_gs.sh" user="frederico"/>
+  <machine name="gigabyte" address="gigabyte" env-loader="$(find dualcamerasaver)/gigabyte_gs.sh" user="frederico"/>
+</launch>

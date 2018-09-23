@@ -4,10 +4,10 @@
   <arg name="savetopic"           default="/color/image_raw"/>
   <arg name="nameprefix"          default="color"/>
   <arg name="encoding"            default="bgr8"/>
-<node name="imagesavernode_$(arg nameprefix)" machine="$(arg machine)" pkg="image_view" type="image_saver" >
+<node name="imagesavernode_$(arg nameprefix)" machine="$(arg machine)" pkg="image_view" type="extract_images" >
   <remap from="image" to="/camera$(arg camera_num)$(arg savetopic)"/>
-  <!--param name="sec_per_frame" value="0.5"/-->
-  <param name="save_all_image"  value="false"/>
+  <param name="sec_per_frame" value="1"/>
+  <!--param name="save_all_image"  value="true"/-->
   <param name="filename_format" value="/tmp/camera$(arg camera_num)_$(arg nameprefix).png"/>
   <!--param name="filename_format" value="/tmp/camera$(arg camera_num)_$(arg nameprefix)%04d.png"/-->
   <param name="encoding"       value="$(arg encoding)"/>

@@ -1,0 +1,6 @@
+<launch>
+  <!-- The storer has to be called on the machine that has all the saved files!/-->
+    <include file="$(find dualcamerasaver)/launch/defs.machine"/>
+    <include file="$(find dualcamerasaver)/launch/dualstart.launch"/>
+    <include file="$(find dualcamerasaver)/launch/remotecamerastart.launch"/>
+</launch>

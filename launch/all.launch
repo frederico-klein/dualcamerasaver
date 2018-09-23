@@ -1,6 +1,22 @@
 <launch>
   <!-- The storer has to be called on the machine that has all the saved files!/-->
-    <include file="$(find dualcamerasaver)/launch/defs.machine"/>
-    <include file="$(find dualcamerasaver)/launch/dualstart.launch"/>
-    <include file="$(find dualcamerasaver)/launch/remotecamerastart.launch"/>
+    <include file="$(find dualcamerasaver)/launch/def_og.machine"/>
+    <include file="$(find dualcamerasaver)/launch/remotecamerastart.launch">
+      <arg name="serial_no_camera"    default="816312062029"/>
+      <arg name="save_machine"         default="gigabyte"/>
+      <arg name="camera_machine"       default="gigabyte"/>
+      <arg name="camera_num"           default="1"/>
+    </include>
+    <include file="$(find dualcamerasaver)/launch/remotecamerastart.launch">
+      <arg name="serial_no_camera"    default="751412060766"/>
+      <arg name="save_machine"         default="gigabyte"/>
+      <arg name="camera_machine"       default="gigabyte"/>
+      <arg name="camera_num"           default="2"/>
+    </include>
+    <include file="$(find dualcamerasaver)/launch/remotecamerastart.launch">
+      <arg name="serial_no_camera"    default="819312071592"/>
+      <arg name="save_machine"         default="gigabyte"/>
+      <arg name="camera_machine"       default="gigabyte"/>
+      <arg name="camera_num"           default="3"/>
+    </include>
 </launch>
